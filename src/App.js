@@ -1,11 +1,15 @@
-import './App.css';
+import palavras from "./palavras"
+import Jogo from "./components/Jogo"
+import Letras from "./components/Letras"
+import Chute from "./components/Chute"
 
-function App() {
+export default function App() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Jogo/>
+      <Letras/>
+      <Chute/>
+    </>
   );
 }
 
-export default App;
