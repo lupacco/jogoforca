@@ -13,18 +13,28 @@ export default function Letras(props){
         let letter = event.target.textContent.toLowerCase()
         let progress = props.wordToBeFilled
         let word = String(props.word)
-        for(let i=0; i<word.length;i++){
-            if(word[i] === letter){
-                progress = setCharAt(progress,i*2,word[i])
-                props.setWordToBeFilled(progress)
-            }     
+        if(word.includes(letter)){
+            for(let i=0; i<word.length;i++){
+                if(word[i] === letter){
+                    progress = setCharAt(progress,i*2,word[i])
+                    props.setWordToBeFilled(progress)
+                }
+            }    
+        }else{
+            props.setGameStep(props.gameStep + 1)
+        }
+        
+    }
+    
+    function checkEndGame(){
+        if(!props.wordToBeFilled.includes('_')){
+            console.log('Parabéns, você vencêu!')
+        }
+        else if(props.gameStep === 6){
+            console.log(`Você perdeu! a palavra correta era ${props.word}`)
         }
     }
-
-    function printStates(){
-        console.log(props.word)
-        console.log(props.wordToBeFilled)
-    }
+    checkEndGame()
 
     return(
         <div className="letters">

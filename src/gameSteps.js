@@ -7,3 +7,5 @@ const gameSteps = [
     "assets/forca5.png",
     "assets/forca6.png"
 ]
+
+export default gameSteps

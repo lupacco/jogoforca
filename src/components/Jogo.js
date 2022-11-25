@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function Jogo(props){
     const gameSteps = [
@@ -22,7 +22,9 @@ export default function Jogo(props){
         let wordIndex = generateRandom()
         let newWord = props.palavras[wordIndex]
         props.setWord(newWord)
+        console.log(newWord)
         createEmptyWord(newWord)
+        props.setGameStep(0)
     }
     //Create dots to fill with the word's letters
     function createEmptyWord(wordToGuess){
@@ -36,14 +38,13 @@ export default function Jogo(props){
             }
         }
         props.setWordToBeFilled(dots)
-        console.log(props.word)
     }
 
 
     return(
         <main>
             <div className="left">
-                <img alt="" src={gameSteps[0]}></img>
+                <img alt="" src={gameSteps[props.gameStep]}></img>
             </div>
             <div className="right">
                 <button onClick={chooseWord}>Escolher Palavra</button>
