@@ -6,10 +6,9 @@ import Chute from "./components/Chute"
 import { useState } from "react"
 
 export default function App() {
-  const [word, setWord] = useState('')
+  const [word, setWord] = useState('x')
   const [wordToBeFilled, setWordToBeFilled] = useState('')
   const [gameStep, setGameStep] = useState(0)
-  // console.log('estados:')
 
   return (
     <>
@@ -29,7 +28,13 @@ export default function App() {
         gameStep={gameStep}
         setGameStep={setGameStep}
       />
-      <Chute/>
+      <Chute
+        word={word}
+        wordToBeFilled={wordToBeFilled}
+        setWordToBeFilled={setWordToBeFilled}
+        gameStep={gameStep}
+        setGameStep={setGameStep}
+      />
     </>
   );
 }

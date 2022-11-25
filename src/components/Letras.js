@@ -27,7 +27,7 @@ export default function Letras(props){
     }
     
     function checkEndGame(){
-        if(!props.wordToBeFilled.includes('_')){
+        if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled){
             console.log('Parabéns, você vencêu!')
         }
         else if(props.gameStep === 6){
