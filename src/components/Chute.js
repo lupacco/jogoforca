@@ -28,12 +28,14 @@ export default function Chute(props){
         <div className="guess">
             <p>Já sei a palavra!</p>
             <input
+            data-test="guess-input"
             value={word} 
             onChange={handleChange}
             >
 
             </input>
-            <button 
+            <button
+            data-test="guess-button" 
             onClick={() => {
                 guessWord(word)
             }}

@@ -42,10 +42,10 @@ export default function Jogo(props){
     return(
         <main>
             <div className="left">
-                <img alt="" src={gameSteps[props.gameStep]}></img>
+                <img data-test="game-image" alt="" src={gameSteps[props.gameStep]}></img>
             </div>
             <div className="right">
-                <button onClick={chooseWord}>Escolher Palavra</button>
+                <button data-test="choose-word" onClick={chooseWord}>Escolher Palavra</button>
                 <p>{props.wordToBeFilled}</p>
             </div>
         </main>

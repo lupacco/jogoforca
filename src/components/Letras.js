@@ -41,7 +41,7 @@ export default function Letras(props){
             <section>
                 {alphabet.map((letter, index) => {
                     return(
-                        <div key={index} onClick={testLetter} className="letter">
+                        <div data-test="letter" key={index} onClick={testLetter} className="letter">
                             <p>
                             {letter}
                             </p>
