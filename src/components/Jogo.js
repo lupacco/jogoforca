@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 export default function Jogo(props){
     const gameSteps = [
         "assets/forca0.png",
