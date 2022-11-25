@@ -15,7 +15,7 @@ export default function Chute(props){
             }
             props.setWordToBeFilled(filledDots)
         }else{
-            props.setGameStep(props.gameStep + 1)
+            props.setGameStep(6)
         }
     }
 
