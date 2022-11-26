@@ -3,7 +3,6 @@ const alphabet = ["A","B","C","D","E","F","G","H","I","J",
 "U","V","W","X","Y","Z"];
 
 export default function Letras(props){
-  
     function setCharAt(str,index,chr) {
         if(index > str.length-1) return str;
         return str.substring(0,index) + chr + str.substring(index+1);
@@ -32,10 +31,13 @@ export default function Letras(props){
     function checkEndGame(){
         if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled){
             console.log('Parabéns, você vencêu!')
+            setTimeout(() => props.setGameStarted(false), 500)
         }
         else if(props.gameStep === 6){
             console.log(`Você perdeu! a palavra correta era ${props.word}`)
+            setTimeout(() => props.setGameStarted(false), 500)
         }
+        console.log(props.gameStarted)
     }
     checkEndGame()
 
@@ -44,7 +46,7 @@ export default function Letras(props){
             <section>
                 {alphabet.map((letter, index) => {
                     return(
-                        <div data-test="letter" key={index} onClick={testLetter} className="letter">
+                        <div data-test="letter" key={index} onClick={testLetter} className={`letter ${props.gameStarted ? "letter-enabled" : "letter-disabled"}`}>
                             <p>
                             {letter}
                             </p>

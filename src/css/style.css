@@ -69,8 +69,6 @@ section{
 
 .letter{
     margin: 4px;
-    color: #39739D;
-    background-color: #E1ECF4;
     width: 40px;
     height: 40px;
     display: flex;
@@ -78,6 +76,14 @@ section{
     justify-content: center;
     border-radius: 4px;
     border: solid 1px #7AA7C7;
+}
+.letter-disabled{
+    color: #798A9F;
+    background: #9FAAB5;
+}
+.letter-enabled{
+    color: #39739D;
+    background-color: #E1ECF4;
 }
 .letter:hover{
     cursor: pointer;
