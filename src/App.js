@@ -8,6 +8,7 @@ import { useState } from "react"
 export default function App() {
   const [word, setWord] = useState('x')
   const [wordToBeFilled, setWordToBeFilled] = useState('')
+  const [gameStarted, setGameStarted] = useState(false)
   const [gameStep, setGameStep] = useState(0)
 
   return (
@@ -18,6 +19,8 @@ export default function App() {
         wordToBeFilled={wordToBeFilled}
         setWordToBeFilled={setWordToBeFilled}
         palavras={palavras}
+        gameStarted={gameStarted}
+        setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
         />
@@ -25,6 +28,8 @@ export default function App() {
         word={word}
         wordToBeFilled={wordToBeFilled}
         setWordToBeFilled={setWordToBeFilled}
+        gameStarted={gameStarted}
+        setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
       />
@@ -32,6 +37,8 @@ export default function App() {
         word={word}
         wordToBeFilled={wordToBeFilled}
         setWordToBeFilled={setWordToBeFilled}
+        gameStarted={gameStarted}
+        setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
       />

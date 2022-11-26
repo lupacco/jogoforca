@@ -10,6 +10,9 @@ export default function Letras(props){
     }
 
     function testLetter(event){
+        if(!props.gameStarted){
+            return
+        }
         let letter = event.target.textContent.toLowerCase()
         let progress = props.wordToBeFilled
         let word = String(props.word)
