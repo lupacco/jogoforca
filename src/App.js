@@ -12,6 +12,7 @@ export default function App() {
   const [gameStep, setGameStep] = useState(0)
   const [userWin, setUserWin] = useState(undefined)
   const [revealedLettersColor, setRevealedLettersColor] = useState('')
+  const [testedLetters, setTestedLetters] = useState([])
 
   return (
     <>
@@ -40,6 +41,8 @@ export default function App() {
         setGameStep={setGameStep}
         userWin={userWin}
         setUserWin={setUserWin}
+        testedLetters={testedLetters}
+        setTestedLetters={setTestedLetters}
       />
       <Chute
         word={word}
