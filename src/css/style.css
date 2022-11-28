@@ -54,6 +54,12 @@ main{
     font-weight: 700;
     font-size: 50px;
 }
+.right .userWin{
+    color: #27AE60;
+}
+.right .userLose{
+    color: #FF0000;
+}
 
 .letters{
     display: flex;

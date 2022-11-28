@@ -33,6 +33,7 @@ export default function Jogo(props){
         createEmptyWord(newWord)
         props.setGameStep(0)
         props.setGameStarted(true)
+        props.setUserWin(undefined)
     }
     //Create dots to fill with the word's letters
     function createEmptyWord(wordToGuess){
@@ -48,6 +49,19 @@ export default function Jogo(props){
         props.setWordToBeFilled(dots)
     }
 
+    function setColorOfWordRevealed(){
+        if(props.userWin){
+            props.setRevealedLettersColor("userWin")
+        }
+        else if(props.userWin === false){
+            props.setRevealedLettersColor("userLose")
+        }
+        else{
+            props.setRevealedLettersColor("")
+        }
+    }
+    setTimeout(setColorOfWordRevealed, 500)
+    console.log(props.revealedLettersColor)
 
     return(
         <main>
@@ -56,7 +70,7 @@ export default function Jogo(props){
             </div>
             <div className="right">
                 <button data-test="choose-word" onClick={chooseWord}>Escolher Palavra</button>
-                <p>{props.wordToBeFilled}</p>
+                <p className={props.revealedLettersColor}>{props.wordToBeFilled}</p>
             </div>
         </main>
     )

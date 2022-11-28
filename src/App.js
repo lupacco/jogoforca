@@ -10,6 +10,8 @@ export default function App() {
   const [wordToBeFilled, setWordToBeFilled] = useState('')
   const [gameStarted, setGameStarted] = useState(false)
   const [gameStep, setGameStep] = useState(0)
+  const [userWin, setUserWin] = useState(undefined)
+  const [revealedLettersColor, setRevealedLettersColor] = useState('')
 
   return (
     <>
@@ -23,6 +25,10 @@ export default function App() {
         setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
+        userWin={userWin}
+        setUserWin={setUserWin}
+        revealedLettersColor={revealedLettersColor}
+        setRevealedLettersColor={setRevealedLettersColor}
         />
       <Letras
         word={word}
@@ -32,6 +38,8 @@ export default function App() {
         setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
+        userWin={userWin}
+        setUserWin={setUserWin}
       />
       <Chute
         word={word}
@@ -41,6 +49,8 @@ export default function App() {
         setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
+        userWin={userWin}
+        setUserWin={setUserWin}
       />
     </>
   );

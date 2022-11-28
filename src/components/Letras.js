@@ -16,7 +16,7 @@ export default function Letras(props){
         let progress = props.wordToBeFilled
         let word = String(props.word)
         if(word.includes(letter)){
-            for(let i=0; i<word.length;i++){
+            for(let i=0; i<word.length; i++){
                 if(word[i] === letter){
                     progress = setCharAt(progress,i*2,word[i])
                     props.setWordToBeFilled(progress)
@@ -27,17 +27,32 @@ export default function Letras(props){
         }
         
     }
+
+    function revealWord(){
+        let word = props.word
+        let progress = props.wordToBeFilled
+        for(let i=0; i<word.length; i++){
+            progress = setCharAt(progress,i*2,word[i])
+            props.setWordToBeFilled(progress)
+        }
+    }
     
     function checkEndGame(){
         if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled){
             console.log('Parabéns, você vencêu!')
-            setTimeout(() => props.setGameStarted(false), 500)
+            setTimeout(() => {
+                props.setUserWin('win')
+                props.setGameStarted(false)
+            }, 500)
         }
         else if(props.gameStep === 6){
             console.log(`Você perdeu! a palavra correta era ${props.word}`)
-            setTimeout(() => props.setGameStarted(false), 500)
+            setTimeout(() => {
+                props.setUserWin('lose')
+                props.setGameStarted(false)
+                revealWord()
+            }, 500)
         }
-        console.log(props.gameStarted)
     }
     checkEndGame()
 

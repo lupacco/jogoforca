@@ -4,6 +4,9 @@ export default function Chute(props){
     const [word, setWord] = useState('')
 
     function guessWord(guess){
+        if(!props.gameStarted){
+            return
+        }
         if(guess === props.word){
             let filledDots = ""
             for(let i in props.word){
