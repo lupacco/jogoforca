@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 const alphabet = ["A","B","C","D","E","F","G","H","I","J",
 "K","L","M","N","O","P","Q","R","S","T",
 "U","V","W","X","Y","Z"];
@@ -43,24 +45,24 @@ export default function Letras(props){
     function checkEndGame(){
         if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled && props.gameStarted){
             console.log('Parabéns, você vencêu!')
-            setTimeout(() => {
+            // setTimeout(() => {
                 props.setUserWin(true)
                 props.setGameStarted(false)
-            }, 200)
+            // }, 200)
         }
         else if(props.gameStep === 6){
             console.log(`Você perdeu! a palavra correta era ${props.word}`)
-            setTimeout(() => {
+            // setTimeout(() => {
                 props.setUserWin(false)
                 props.setGameStarted(false)
                 revealWord()
-            }, 200)
+            // }, 200)
         }
     }
     checkEndGame()
 
     return(
-        <div className="letters">
+        <LetrasContainer>
             <section>
                 {alphabet.map((letter, index) => {
                     return(
@@ -70,6 +72,41 @@ export default function Letras(props){
                     )
                 })}
             </section>
-        </div>
+        </LetrasContainer>
     )
 }
+
+const LetrasContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    section{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    margin: 0 128px;
+    }
+
+    .letter{
+        margin: 4px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        border: solid 1px #7AA7C7;
+    }
+    .letter-disabled{
+        color: #798A9F;
+        background: #9FAAB5;
+    }
+    .letter-enabled{
+        color: #39739D;
+        background-color: #E1ECF4;
+    }
+    .letter:hover{
+        cursor: pointer;
+    }
+`

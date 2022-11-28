@@ -24,6 +24,7 @@ export default function App() {
         palavras={palavras}
         gameStarted={gameStarted}
         setGameStarted={setGameStarted}
+        setTestedLetters={setTestedLetters}
         gameStep={gameStep}
         setGameStep={setGameStep}
         userWin={userWin}

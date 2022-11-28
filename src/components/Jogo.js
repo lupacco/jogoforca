@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 import forca0 from "../assets/forca0.png"
 import forca1 from "../assets/forca1.png"
 import forca2 from "../assets/forca2.png"
@@ -34,6 +36,7 @@ export default function Jogo(props){
         props.setGameStep(0)
         props.setGameStarted(true)
         props.setUserWin(undefined)
+        props.setTestedLetters([])
     }
     //Create dots to fill with the word's letters
     function createEmptyWord(wordToGuess){
@@ -63,7 +66,7 @@ export default function Jogo(props){
     setTimeout(setColorOfWordRevealed, 500)
 
     return(
-        <main>
+        <JogoContainer>
             <div className="left">
                 <img data-test="game-image" alt="" src={gameSteps[props.gameStep]}></img>
             </div>
@@ -71,6 +74,54 @@ export default function Jogo(props){
                 <button data-test="choose-word" onClick={chooseWord}>Escolher Palavra</button>
                 <p data-test="word" data-answer={props.gameStarted ? props.word : ""} className={props.revealedLettersColor}>{props.wordToBeFilled}</p>
             </div>
-        </main>
+        </JogoContainer>
     )
 }
+
+const JogoContainer = styled.main`
+    padding: 64px 32px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    .left img{
+    width: 400px;
+    max-width: 100%;
+    }
+
+    .right{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 50%;
+    }
+
+    .right button{
+        font-weight: 700;
+        font-size: 20px;
+        margin-top: 24px;
+        width: 200px;
+        height: 60px;
+        border-style: none;
+        border-radius: 6px;
+        background-color: #27AE60;
+        color: #FFFFFF;
+    }
+    .right button:hover{
+        cursor: pointer;
+    }
+    .right p{
+        color: #000000;
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 50px;
+    }
+    .right .userWin{
+        color: #27AE60;
+    }
+    .right .userLose{
+        color: #FF0000;
+    }
+`
