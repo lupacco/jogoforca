@@ -9,10 +9,10 @@ export default function Letras(props){
     }
 
     function testLetter(event){
-        if(!props.gameStarted){
+        let letter = event.target.textContent.toLowerCase()
+        if(!props.gameStarted || props.testedLetters.includes(letter)){
             return
         }
-        let letter = event.target.textContent.toLowerCase()
         let progress = props.wordToBeFilled
         let word = String(props.word)
         if(word.includes(letter)){
@@ -25,7 +25,10 @@ export default function Letras(props){
         }else{
             props.setGameStep(props.gameStep + 1)
         }
-        
+        event.target.classList.remove('letter-enabled')
+        event.target.classList.add('letter-disabled')
+        const newTestedLetters = [...props.testedLetters, letter]
+        props.setTestedLetters(newTestedLetters)
     }
     
     function checkEndGame(){
@@ -47,9 +50,7 @@ export default function Letras(props){
                 {alphabet.map((letter, index) => {
                     return(
                         <div data-test="letter" key={index} onClick={testLetter} className={`letter ${props.gameStarted ? "letter-enabled" : "letter-disabled"}`}>
-                            <p>
                             {letter}
-                            </p>
                         </div>
                     )
                 })}

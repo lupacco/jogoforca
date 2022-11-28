@@ -10,6 +10,7 @@ export default function App() {
   const [wordToBeFilled, setWordToBeFilled] = useState('')
   const [gameStarted, setGameStarted] = useState(false)
   const [gameStep, setGameStep] = useState(0)
+  const [testedLetters, setTestedLetters] = useState([])
 
   return (
     <>
@@ -32,6 +33,8 @@ export default function App() {
         setGameStarted={setGameStarted}
         gameStep={gameStep}
         setGameStep={setGameStep}
+        testedLetters={testedLetters}
+        setTestedLetters={setTestedLetters}
       />
       <Chute
         word={word}
