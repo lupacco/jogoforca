@@ -41,20 +41,20 @@ export default function Letras(props){
     }
     
     function checkEndGame(){
-        if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled){
+        if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled && props.gameStarted){
             console.log('Parabéns, você vencêu!')
             setTimeout(() => {
-                props.setUserWin('win')
+                props.setUserWin(true)
                 props.setGameStarted(false)
-            }, 500)
+            }, 200)
         }
         else if(props.gameStep === 6){
             console.log(`Você perdeu! a palavra correta era ${props.word}`)
             setTimeout(() => {
-                props.setUserWin('lose')
+                props.setUserWin(false)
                 props.setGameStarted(false)
                 revealWord()
-            }, 500)
+            }, 200)
         }
     }
     checkEndGame()
@@ -64,9 +64,9 @@ export default function Letras(props){
             <section>
                 {alphabet.map((letter, index) => {
                     return(
-                        <div data-test="letter" key={index} onClick={testLetter} className={`letter ${props.gameStarted ? "letter-enabled" : "letter-disabled"}`}>
+                        <button data-test="letter" key={index} onClick={testLetter} className={`letter ${props.gameStarted ? "letter-enabled" : "letter-disabled"}`}>
                             {letter}
-                        </div>
+                        </button>
                     )
                 })}
             </section>

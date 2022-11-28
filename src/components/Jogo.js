@@ -61,7 +61,6 @@ export default function Jogo(props){
         }
     }
     setTimeout(setColorOfWordRevealed, 500)
-    console.log(props.revealedLettersColor)
 
     return(
         <main>
