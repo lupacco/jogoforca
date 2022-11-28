@@ -20,6 +20,7 @@ export default function Chute(props){
         }else{
             props.setGameStep(6)
         }
+        setWord('')
     }
 
     function handleChange(event){
