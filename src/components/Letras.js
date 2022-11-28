@@ -45,18 +45,14 @@ export default function Letras(props){
     function checkEndGame(){
         if(!props.wordToBeFilled.includes('_') && props.wordToBeFilled && props.gameStarted){
             console.log('Parabéns, você vencêu!')
-            // setTimeout(() => {
-                props.setUserWin(true)
-                props.setGameStarted(false)
-            // }, 200)
+            props.setUserWin(true)
+            props.setGameStarted(false)
         }
         else if(props.gameStep === 6){
             console.log(`Você perdeu! a palavra correta era ${props.word}`)
-            // setTimeout(() => {
-                props.setUserWin(false)
-                props.setGameStarted(false)
-                revealWord()
-            // }, 200)
+            props.setUserWin(false)
+            props.setGameStarted(false)
+            revealWord()
         }
     }
     checkEndGame()
