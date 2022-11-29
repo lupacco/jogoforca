@@ -34,4 +34,4 @@ npm start
 
 The website is also acessable through the vercel deploy, click the following link to see it: 
 
-- [Enter the game](https://projeto8-jogoforca.vercel.app/)
+- [Enter the game](https://projeto8-jogoforca-azure.vercel.app/)
