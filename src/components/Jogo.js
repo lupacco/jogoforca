@@ -31,7 +31,6 @@ export default function Jogo(props){
         let wordIndex = generateRandom()
         let newWord = props.palavras[wordIndex]
         props.setWord(newWord)
-        console.log(newWord)
         createEmptyWord(newWord)
         props.setGameStep(0)
         props.setGameStarted(true)
@@ -63,7 +62,7 @@ export default function Jogo(props){
             props.setRevealedLettersColor("")
         }
     }
-    setTimeout(setColorOfWordRevealed, 500)
+    setColorOfWordRevealed()
 
     return(
         <JogoContainer>
